@@ -31,68 +31,116 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
   isActive = true,
   onClick,
 }) => {
+  // High-fidelity Retro LCD / Tetris Brick component with beveled retro brick effect
+  const renderBrick = (type: 'solid' | 'ghost' | 'empty' | 'placed' = 'solid', className = '') => {
+    if (type === 'empty') {
+      return (
+        <div className={`w-full aspect-square border border-slate-900/[0.08] rounded-[1.5px] ${className}`} />
+      );
+    }
+    if (type === 'ghost') {
+      return (
+        <div className={`w-full aspect-square border-2 border-dashed border-slate-900/60 rounded-[1.5px] flex items-center justify-center ${className}`}>
+          <div className="w-1 h-1 bg-slate-900/30 rounded-[0.5px]" />
+        </div>
+      );
+    }
+    // Solid / Placed Retro 3D Brick Block (Authentic Tetris LCD brick with inner bevel & core pixel)
+    return (
+      <div className={`w-full aspect-square bg-[#131b11] rounded-[1.5px] p-[1.5px] shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_1px_rgba(0,0,0,0.3)] flex items-center justify-center relative overflow-hidden ${className}`}>
+        <div className="w-full h-full border border-slate-800/80 bg-[#1d2719] rounded-[1px] flex items-center justify-center">
+          <div className="w-[45%] h-[45%] bg-[#0e140d] rounded-[0.5px] shadow-inner" />
+        </div>
+      </div>
+    );
+  };
+
   const renderPieceGrid = (piece: string | undefined | null) => {
-    if (!piece) return <div className="w-10 h-10" />;
+    if (!piece) return <div className="w-8 h-8" />;
 
     if (piece === 'O') {
       return (
-        <div className="grid grid-cols-2 gap-0.5 w-7 h-7 bg-transparent p-0.5">
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+        <div className="grid grid-cols-2 gap-[1.5px] w-7 h-7 bg-transparent p-0.5">
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+        </div>
+      );
+    }
+
+    if (piece === 'I') {
+      return (
+        <div className="grid grid-cols-4 gap-[1.5px] w-9 h-3.5 p-0.5">
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
         </div>
       );
     }
 
     if (piece === 'T') {
       return (
-        <div className="grid grid-cols-3 gap-0.5 w-10 h-7 p-0.5">
+        <div className="grid grid-cols-3 gap-[1.5px] w-8 h-6 p-0.5">
           <div />
-          <div className="bg-slate-900 rounded-[1px]" />
+          {renderBrick('solid')}
           <div />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
         </div>
       );
     }
 
     if (piece === 'Z') {
       return (
-        <div className="grid grid-cols-3 gap-0.5 w-10 h-7 p-0.5">
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+        <div className="grid grid-cols-3 gap-[1.5px] w-8 h-6 p-0.5">
+          {renderBrick('solid')}
+          {renderBrick('solid')}
           <div />
           <div />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+        </div>
+      );
+    }
+
+    if (piece === 'S') {
+      return (
+        <div className="grid grid-cols-3 gap-[1.5px] w-8 h-6 p-0.5">
+          <div />
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          <div />
         </div>
       );
     }
 
     if (piece === 'L') {
       return (
-        <div className="grid grid-cols-3 gap-0.5 w-10 h-7 p-0.5">
+        <div className="grid grid-cols-3 gap-[1.5px] w-8 h-6 p-0.5">
           <div />
           <div />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
         </div>
       );
     }
 
     if (piece === 'J') {
       return (
-        <div className="grid grid-cols-3 gap-0.5 w-10 h-7 p-0.5">
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
-          <div className="bg-slate-900 rounded-[1px]" />
+        <div className="grid grid-cols-3 gap-[1.5px] w-8 h-6 p-0.5">
+          {renderBrick('solid')}
           <div />
           <div />
-          <div className="bg-slate-900 rounded-[1px]" />
+          {renderBrick('solid')}
+          {renderBrick('solid')}
+          {renderBrick('solid')}
         </div>
       );
     }
@@ -175,81 +223,193 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
                 {/* Main Matrix Grid (8 cols) */}
                 <div className="col-span-8 bg-[#8EA67B] border border-[#6B825C] rounded-md p-1.5 flex flex-col justify-between relative overflow-hidden">
                   
-                  {/* GAMEPLAY STATE */}
+                  {/* GAMEPLAY STATE - Realistic 10x20 Tetris Matrix Playground */}
                   {screen.state === 'gameplay' && (
-                    <div className="h-full w-full flex flex-col justify-between relative">
-                      <div className="absolute inset-0 grid grid-cols-10 grid-rows-20 gap-[1px] opacity-25 pointer-events-none">
-                        {Array.from({ length: 80 }).map((_, i) => (
-                          <div key={i} className="border border-slate-950/20" />
+                    <div className="h-full w-full flex flex-col justify-between relative bg-[#88A075] p-1 rounded-[4px] border border-[#6B825C]/80 shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]">
+                      {/* Grid background 10 Columns x 18 Rows */}
+                      <div className="w-full h-[180px] grid grid-cols-10 grid-rows-18 gap-[1px] relative">
+                        {/* Background LCD cell raster dots */}
+                        {Array.from({ length: 180 }).map((_, i) => (
+                          <div 
+                            key={i} 
+                            className="w-full h-full border-[0.5px] border-[#7d9669]/60 rounded-[0.5px]" 
+                          />
                         ))}
-                      </div>
 
-                      <div className="relative z-10 my-auto flex flex-col items-center">
-                        {screen.id === 4 ? (
-                          <div className="grid grid-cols-3 gap-1 my-6">
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5" />
-                            <div className="w-3.5 h-3.5" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                          </div>
-                        ) : (
-                          <div className="grid grid-cols-2 gap-1 my-5">
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                            <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
+                        {/* TETRIS ACTIVE PLAYGROUND BLOCKS */}
+                        {/* 1. Falling Active Piece (T-piece or Z-piece or O-piece with crisp 3D styling) */}
+                        {screen.id === 1 && (
+                          <>
+                            {/* Falling Z Piece at Row 6-7, Col 4-6 */}
+                            <div className="absolute top-[28%] left-[30%] w-[30%] grid grid-cols-3 gap-[1px] z-10">
+                              {renderBrick('solid')}
+                              {renderBrick('solid')}
+                              <div />
+                              <div />
+                              {renderBrick('solid')}
+                              {renderBrick('solid')}
+                            </div>
+                            {/* Ghost projection at bottom */}
+                            <div className="absolute bottom-[22%] left-[30%] w-[30%] grid grid-cols-3 gap-[1px] z-5 opacity-40">
+                              {renderBrick('ghost')}
+                              {renderBrick('ghost')}
+                              <div />
+                              <div />
+                              {renderBrick('ghost')}
+                              {renderBrick('ghost')}
+                            </div>
+                          </>
+                        )}
+
+                        {screen.id === 5 && (
+                          <>
+                            {/* Falling T Piece at Row 5, Col 4-6 */}
+                            <div className="absolute top-[24%] left-[30%] w-[30%] grid grid-cols-3 gap-[1px] z-10">
+                              <div />
+                              {renderBrick('solid')}
+                              <div />
+                              {renderBrick('solid')}
+                              {renderBrick('solid')}
+                              {renderBrick('solid')}
+                            </div>
+                            {/* Ghost projection */}
+                            <div className="absolute bottom-[33%] left-[30%] w-[30%] grid grid-cols-3 gap-[1px] z-5 opacity-40">
+                              <div />
+                              {renderBrick('ghost')}
+                              <div />
+                              {renderBrick('ghost')}
+                              {renderBrick('ghost')}
+                              {renderBrick('ghost')}
+                            </div>
+                          </>
+                        )}
+
+                        {/* 2. Realistic Stacked Bricks / Terrain at the Bottom */}
+                        {/* Row 17 (Bottom-most stacked layer with well for I-piece) */}
+                        <div className="absolute bottom-0 left-0 w-full grid grid-cols-10 gap-[1px] z-10">
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                        </div>
+
+                        {/* Row 16 (Second layer) */}
+                        <div className="absolute bottom-[5.5%] left-0 w-full grid grid-cols-10 gap-[1px] z-10">
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                          <div />
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                        </div>
+
+                        {/* Row 15 (Third layer) */}
+                        <div className="absolute bottom-[11%] left-0 w-full grid grid-cols-10 gap-[1px] z-10">
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                          <div />
+                          <div />
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                          <div />
+                        </div>
+
+                        {/* Row 14 (Fourth layer bump) */}
+                        <div className="absolute bottom-[16.5%] left-0 w-full grid grid-cols-10 gap-[1px] z-10">
+                          <div />
+                          {renderBrick('solid')}
+                          <div />
+                          <div />
+                          <div />
+                          <div />
+                          {renderBrick('solid')}
+                          {renderBrick('solid')}
+                          <div />
+                          <div />
+                        </div>
+
+                        {/* Row 13 (Fifth layer bump for Level 7) */}
+                        {screen.id === 5 && (
+                          <div className="absolute bottom-[22%] left-0 w-full grid grid-cols-10 gap-[1px] z-10">
+                            <div />
+                            <div />
+                            <div />
+                            <div />
+                            <div />
+                            <div />
+                            {renderBrick('solid')}
+                            <div />
+                            <div />
+                            <div />
                           </div>
                         )}
-                      </div>
-
-                      <div className="grid grid-cols-5 gap-0.5 justify-center mt-auto">
-                        <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                        <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                        <div className="w-3.5 h-3.5 bg-slate-900 rounded-[1px]" />
-                        <div className="w-3.5 h-3.5 border border-slate-900 rounded-[1px]" />
-                        <div className="w-3.5 h-3.5 border border-slate-900 rounded-[1px]" />
                       </div>
                     </div>
                   )}
 
                   {/* PAUSED STATE */}
                   {screen.state === 'paused' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-8">
-                      <span className="text-lg font-extrabold tracking-widest text-slate-950 mb-1">
-                        PAUSED
-                      </span>
-                      <span className="text-[9px] tracking-wider text-slate-800 font-sans font-bold">
-                        TAP TO RESUME
-                      </span>
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-6 bg-[#88A075] p-2 rounded-[4px] border border-[#6B825C]/80">
+                      {/* Grid background behind pause overlay */}
+                      <div className="absolute inset-0 grid grid-cols-10 grid-rows-18 gap-[1px] opacity-15 pointer-events-none p-1">
+                        {Array.from({ length: 180 }).map((_, i) => (
+                          <div key={i} className="border-[0.5px] border-slate-950/20" />
+                        ))}
+                      </div>
+
+                      <div className="relative z-10 bg-[#99B087]/90 border-2 border-slate-900 px-3 py-2.5 rounded-lg shadow-sm">
+                        <span className="text-sm sm:text-base font-black tracking-widest text-slate-950 block mb-0.5">
+                          PAUSED
+                        </span>
+                        <div className="flex items-center justify-center gap-1 text-[8px] tracking-wider text-slate-900 font-sans font-bold">
+                          <Pause className="w-2.5 h-2.5 fill-current" />
+                          <span>TAP TO RESUME</span>
+                        </div>
+                      </div>
                     </div>
                   )}
 
                   {/* VICTORY STATE */}
                   {screen.state === 'victory' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center p-1.5">
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center p-1.5 bg-[#88A075] rounded-[4px] border border-[#6B825C]/80 relative overflow-hidden">
+                      {/* Victory checkered line clear animation effect */}
                       <div className="flex items-center gap-1 text-slate-950 font-black text-xs mb-1">
                         <Trophy className="w-3.5 h-3.5 fill-slate-950" />
-                        <span>VICTORY!</span>
+                        <span>STAGE CLEARED</span>
                       </div>
-                      <span className="text-[8px] tracking-widest font-extrabold text-slate-800 mb-2">
-                        STAGE CLEARED
-                      </span>
+                      
+                      <div className="grid grid-cols-8 gap-[1px] w-full my-1 opacity-70">
+                        {Array.from({ length: 16 }).map((_, idx) => (
+                          <div key={idx} className={idx % 2 === 0 ? 'bg-slate-900 h-1.5' : 'bg-transparent h-1.5'} />
+                        ))}
+                      </div>
 
                       <div className="bg-[#839B71] border border-[#637A52] rounded-lg p-1.5 w-full mb-2 text-center">
                         <div className="flex justify-around text-[8px] font-bold text-slate-800 mb-0.5">
                           <span>SCORE</span>
                           <span>LINES</span>
                         </div>
-                        <div className="flex justify-around text-xs font-extrabold text-slate-950">
+                        <div className="flex justify-around text-xs font-extrabold text-slate-950 font-mono">
                           <span>{screen.victoryScore || '9785'}</span>
                           <span>{screen.victoryLines || '13'}</span>
                         </div>
                       </div>
 
                       <div className="flex gap-1 w-full">
-                        <div className="flex-1 bg-[#839B71] border border-slate-900 rounded py-0.5 text-[8px] font-extrabold flex items-center justify-center gap-0.5">
+                        <div className="flex-1 bg-[#839B71] border border-slate-900 rounded py-0.5 text-[8px] font-extrabold flex items-center justify-center gap-0.5 text-slate-950">
                           <RotateCcw className="w-2 h-2" /> REPLAY
                         </div>
                         <div className="flex-1 bg-slate-950 text-[#99B087] rounded py-0.5 text-[8px] font-extrabold flex items-center justify-center">
@@ -261,16 +421,30 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
                   {/* GAME OVER STATE */}
                   {screen.state === 'gameover' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-6">
-                      <span className="text-base font-black tracking-widest text-slate-950 mb-1">
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-4 bg-[#88A075] p-2 rounded-[4px] border border-[#6B825C]/80 relative overflow-hidden">
+                      {/* Jammed blocks at top */}
+                      <div className="w-full grid grid-cols-10 gap-[1px] mb-2 opacity-50">
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                        {renderBrick('solid')}
+                      </div>
+
+                      <span className="text-sm font-black tracking-widest text-slate-950 mb-0.5">
                         GAME OVER
                       </span>
-                      <div className="text-[11px] font-bold text-slate-900 mb-1">
-                        SCORE: {screen.score.replace(/^0+/, '') || '870'}
+                      <div className="text-[10px] font-bold text-slate-900 mb-1 font-mono">
+                        FINAL: {screen.score.replace(/^0+/, '') || '870'}
                       </div>
-                      <span className="text-[8px] tracking-wider text-slate-800 font-sans font-bold">
+                      <div className="bg-slate-950 text-[#99B087] text-[8px] tracking-wider font-sans font-bold px-2 py-0.5 rounded">
                         PRESS RESTART
-                      </span>
+                      </div>
                     </div>
                   )}
 
