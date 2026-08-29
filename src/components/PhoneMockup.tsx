@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   Trophy, 
   Pause, 
+  Play,
   RotateCcw, 
   Volume2, 
   Settings, 
@@ -203,12 +204,12 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
               </span>
               
               <div className="flex items-center gap-1.5">
-                <div className="px-2 py-0.5 rounded-md bg-[#99B087] border border-[#546844] text-slate-950 text-[10px] font-sans font-bold shadow-2xs flex items-center gap-1">
-                  <Layers className="w-3 h-3 text-slate-900 shrink-0" />
+                <div className="px-2 py-0.5 rounded-md bg-[#99B087] border border-[#546844] text-slate-800 text-[10px] font-sans font-medium shadow-2xs flex items-center gap-1">
+                  <Layers className="w-3 h-3 text-slate-700 shrink-0" />
                   <span>LEVEL</span>
                 </div>
-                <div className="px-2 py-0.5 rounded-md bg-[#99B087] border border-[#546844] text-slate-950 text-[10px] font-sans font-bold shadow-2xs flex items-center gap-1">
-                  <Trophy className="w-3 h-3 text-slate-900 shrink-0" />
+                <div className="px-2 py-0.5 rounded-md bg-[#99B087] border border-[#546844] text-slate-800 text-[10px] font-sans font-medium shadow-2xs flex items-center gap-1">
+                  <Trophy className="w-3 h-3 text-slate-700 shrink-0" />
                   <span>SCORE</span>
                 </div>
               </div>
@@ -220,12 +221,12 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
               {/* LCD Screen Grid Layout */}
               <div className="grid grid-cols-12 gap-1 flex-1">
                 
-                {/* Main Matrix Grid (8 cols) */}
-                <div className="col-span-8 bg-[#8EA67B] border border-[#6B825C] rounded-md p-1.5 flex flex-col justify-between relative overflow-hidden">
+                {/* Main Matrix Grid (8 cols) - Reduced opacity & thinned border */}
+                <div className="col-span-8 bg-[#88A075]/65 border-[0.5px] border-[#6B825C]/60 rounded-md p-1 flex flex-col justify-between relative overflow-hidden shadow-[inset_0_1px_1px_rgba(0,0,0,0.1)]">
                   
                   {/* GAMEPLAY STATE - Realistic 10x20 Tetris Matrix Playground */}
                   {screen.state === 'gameplay' && (
-                    <div className="h-full w-full flex flex-col justify-between relative bg-[#88A075] p-1 rounded-[4px] border border-[#6B825C]/80 shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]">
+                    <div className="h-full w-full flex flex-col justify-between relative">
                       {/* Grid background 10 Columns x 18 Rows */}
                       <div className="w-full h-[180px] grid grid-cols-10 grid-rows-18 gap-[1px] relative">
                         {/* Background LCD cell raster dots */}
@@ -362,7 +363,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
                   {/* PAUSED STATE */}
                   {screen.state === 'paused' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-6 bg-[#88A075] p-2 rounded-[4px] border border-[#6B825C]/80">
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-6 relative">
                       {/* Grid background behind pause overlay */}
                       <div className="absolute inset-0 grid grid-cols-10 grid-rows-18 gap-[1px] opacity-15 pointer-events-none p-1">
                         {Array.from({ length: 180 }).map((_, i) => (
@@ -384,7 +385,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
                   {/* VICTORY STATE */}
                   {screen.state === 'victory' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center p-1.5 bg-[#88A075] rounded-[4px] border border-[#6B825C]/80 relative overflow-hidden">
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden">
                       {/* Victory checkered line clear animation effect */}
                       <div className="flex items-center gap-1 text-slate-950 font-black text-xs mb-1">
                         <Trophy className="w-3.5 h-3.5 fill-slate-950" />
@@ -421,7 +422,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
                   {/* GAME OVER STATE */}
                   {screen.state === 'gameover' && (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-4 bg-[#88A075] p-2 rounded-[4px] border border-[#6B825C]/80 relative overflow-hidden">
+                    <div className="h-full w-full flex flex-col items-center justify-center text-center py-4 relative overflow-hidden">
                       {/* Jammed blocks at top */}
                       <div className="w-full grid grid-cols-10 gap-[1px] mb-2 opacity-50">
                         {renderBrick('solid')}
@@ -466,20 +467,26 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
                     </div>
                   </div>
 
-                  <div className="bg-[#8EA67B] border border-[#6B825C] rounded-md p-1 text-[7px] flex flex-col gap-0.5">
-                    <span className="font-bold tracking-wider text-slate-800 text-center">STATS</span>
-                    <div>
-                      <div className="text-[6px] text-slate-700">SCORE</div>
-                      <div className="font-extrabold text-slate-950 text-[8px]">{screen.score}</div>
+                  <div className="bg-[#8EA67B] border border-[#6B825C] rounded-md p-1 px-1.5 text-[7px] flex flex-col gap-0.5 items-start text-left">
+                    <span className="font-bold tracking-wider text-slate-800 text-left w-full">STATS</span>
+                    <div className="text-left w-full">
+                      <div className="text-[6px] text-slate-700 font-semibold tracking-tight">SCORE</div>
+                      <div className="font-extrabold text-slate-950 text-[8px] font-mono leading-tight">{screen.score}</div>
                     </div>
-                    <div>
-                      <div className="text-[6px] text-slate-700">HI-SCORE</div>
-                      <div className="font-extrabold text-slate-950 text-[8px]">{screen.hiScore}</div>
+                    <div className="text-left w-full">
+                      <div className="text-[6px] text-slate-700 font-semibold tracking-tight">HI-SCORE</div>
+                      <div className="font-extrabold text-slate-950 text-[8px] font-mono leading-tight">{screen.hiScore}</div>
                     </div>
-                    <div>
-                      <div className="text-[6px] text-slate-700">TIME</div>
-                      <div className="font-extrabold text-slate-950 text-[8px]">{screen.time}</div>
+                    <div className="text-left w-full">
+                      <div className="text-[6px] text-slate-700 font-semibold tracking-tight">TIME</div>
+                      <div className="font-extrabold text-slate-950 text-[8px] font-mono leading-tight">{screen.time}</div>
                     </div>
+                    {screen.lines && (
+                      <div className="text-left w-full">
+                        <div className="text-[6px] text-slate-700 font-semibold tracking-tight">LINES</div>
+                        <div className="font-extrabold text-slate-950 text-[8px] font-mono leading-tight">{screen.lines}</div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -489,18 +496,54 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
             {/* Console Controls */}
             <div className="mt-2.5">
-              <div className="grid grid-cols-4 gap-1.5 mb-2.5 px-0.5">
-                <div className="bg-slate-800/90 rounded-full h-6 flex items-center justify-center text-white shadow-2xs">
-                  <Pause className="w-3 h-3" />
+              {/* Top Option / Function Buttons Row with Borderless Pill Style & Labels Bellow */}
+              <div className="grid grid-cols-4 gap-1 mb-2.5 px-0.5">
+                {/* PAUSE BUTTON */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-slate-900/45 hover:bg-slate-900/65 rounded-full w-7 h-4 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95">
+                    <Pause className="w-2.5 h-2.5" />
+                  </div>
+                  <span className={`text-[6px] font-black tracking-wider mt-0.5 uppercase ${
+                    screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'
+                  }`}>
+                    PAUSE
+                  </span>
                 </div>
-                <div className="bg-slate-800/90 rounded-full h-6 flex items-center justify-center text-white shadow-2xs">
-                  <RotateCcw className="w-3 h-3" />
+
+                {/* RESTART BUTTON */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-slate-900/45 hover:bg-slate-900/65 rounded-full w-7 h-4 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95">
+                    <RotateCcw className="w-2.5 h-2.5" />
+                  </div>
+                  <span className={`text-[6px] font-black tracking-wider mt-0.5 uppercase ${
+                    screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'
+                  }`}>
+                    RESTART
+                  </span>
                 </div>
-                <div className="bg-slate-800/90 rounded-full h-6 flex items-center justify-center text-white shadow-2xs">
-                  <Volume2 className="w-3 h-3" />
+
+                {/* SOUND BUTTON */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-slate-900/45 hover:bg-slate-900/65 rounded-full w-7 h-4 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95">
+                    <Volume2 className="w-2.5 h-2.5" />
+                  </div>
+                  <span className={`text-[6px] font-black tracking-wider mt-0.5 uppercase ${
+                    screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'
+                  }`}>
+                    SOUND
+                  </span>
                 </div>
-                <div className="bg-slate-800/90 rounded-full h-6 flex items-center justify-center text-white shadow-2xs">
-                  <Settings className="w-3 h-3" />
+
+                {/* OPTION / SETTINGS BUTTON */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-slate-900/45 hover:bg-slate-900/65 rounded-full w-7 h-4 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95">
+                    <Settings className="w-2.5 h-2.5" />
+                  </div>
+                  <span className={`text-[6px] font-black tracking-wider mt-0.5 uppercase ${
+                    screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'
+                  }`}>
+                    OPTION
+                  </span>
                 </div>
               </div>
 
@@ -522,25 +565,25 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
                     <div className="w-7 h-7 rounded-full bg-amber-400 border border-amber-600 shadow-sm flex items-center justify-center text-slate-950 font-bold">
                       <RotateCw className="w-3 h-3" />
                     </div>
-                    <span className="text-[6px] font-extrabold tracking-tight mt-0.5 text-slate-950">ROT R</span>
+                    <span className={`text-[6px] font-extrabold tracking-tight mt-0.5 ${screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'}`}>ROT R</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-7 h-7 rounded-full bg-emerald-500 border border-emerald-700 shadow-sm flex items-center justify-center text-white font-bold">
                       <RotateCcw className="w-3 h-3" />
                     </div>
-                    <span className="text-[6px] font-extrabold tracking-tight mt-0.5 text-slate-950">ROT L</span>
+                    <span className={`text-[6px] font-extrabold tracking-tight mt-0.5 ${screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'}`}>ROT L</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-7 h-7 rounded-full bg-cyan-400 border border-cyan-600 shadow-sm flex items-center justify-center text-slate-950 font-bold">
                       <Hand className="w-3 h-3" />
                     </div>
-                    <span className="text-[6px] font-extrabold tracking-tight mt-0.5 text-slate-950">HOLD</span>
+                    <span className={`text-[6px] font-extrabold tracking-tight mt-0.5 ${screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'}`}>HOLD</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-7 h-7 rounded-full bg-red-500 border border-red-700 shadow-sm flex items-center justify-center text-white font-bold">
                       <ChevronsDown className="w-3 h-3" />
                     </div>
-                    <span className="text-[6px] font-extrabold tracking-tight mt-0.5 text-slate-950">DROP</span>
+                    <span className={`text-[6px] font-extrabold tracking-tight mt-0.5 ${screen.theme === 'purple' ? 'text-slate-200' : 'text-slate-950'}`}>DROP</span>
                   </div>
                 </div>
               </div>
