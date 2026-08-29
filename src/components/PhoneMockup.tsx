@@ -378,11 +378,11 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
                         ))}
                       </div>
 
-                      <div className="relative z-10 bg-[#99B087]/90 border-2 border-slate-900 px-3 py-2.5 rounded-lg shadow-sm">
-                        <span className="text-sm sm:text-base font-black tracking-widest text-slate-950 block mb-0.5">
+                      <div className="relative z-10 flex flex-col items-center justify-center">
+                        <span className="text-sm sm:text-base font-black tracking-widest text-slate-950 leading-none">
                           PAUSED
                         </span>
-                        <div className="flex items-center justify-center gap-1 text-[8px] tracking-wider text-slate-900 font-sans font-bold">
+                        <div className="flex items-center justify-center gap-1 text-[8px] tracking-wider text-slate-800 font-sans font-bold mt-1.5">
                           <Pause className="w-2.5 h-2.5 fill-current" />
                           <span>TAP TO RESUME</span>
                         </div>
@@ -450,9 +450,9 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
                       <div className="text-[10px] font-bold text-slate-900 mb-1 font-mono">
                         FINAL: {screen.score.replace(/^0+/, '') || '870'}
                       </div>
-                      <div className="bg-slate-950 text-[#99B087] text-[8px] tracking-wider font-sans font-bold px-2 py-0.5 rounded">
+                      <span className="text-[8px] tracking-wider text-slate-800 font-sans font-bold mt-1">
                         PRESS RESTART
-                      </div>
+                      </span>
                     </div>
                   )}
 
