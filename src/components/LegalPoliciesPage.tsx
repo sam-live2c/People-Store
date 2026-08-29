@@ -79,7 +79,7 @@ export const LegalPoliciesPage: React.FC<LegalPoliciesPageProps> = ({
           Brick Stack &mdash; Official Legal Documentation
         </h1>
         <p style={{ margin: '0 0 16px 0', fontSize: '14px', color: '#333333' }}>
-          <strong>Effective Date:</strong> August 29, 2026 | <strong>Version:</strong> 128.0.1
+          <strong>Effective Date:</strong> August 29, 2026 | <strong>Version:</strong> 1.0
         </p>
       </header>
 

@@ -113,7 +113,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy, onOpenTerms
 
         {/* Copyright Label */}
         <div className="text-xs text-slate-400 text-center md:text-right font-mono">
-          © {currentYear} Brick Stack. All rights reserved.
+          © {currentYear} Brick Stack (v1.0). All rights reserved.
         </div>
 
       </div>

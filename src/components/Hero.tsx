@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({
           className="text-xs text-gray-500 mb-10 flex items-center justify-center gap-3 flex-wrap font-medium"
         >
           <span className="flex items-center gap-1">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Available for Android 12.0+
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Version 1.0 &bull; Available for Android 12.0+
           </span>
         </div>
 

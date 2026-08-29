@@ -142,8 +142,10 @@ interface HeroCardsProps {
   activeTheme?: ThemeOption;
 }
 
+let savedScreenshotIndex = 0;
+
 export const HeroCards: React.FC<HeroCardsProps> = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(savedScreenshotIndex);
   const [direction, setDirection] = useState<number>(1);
 
   const activeIndex = ((currentIndex % SCREENSHOTS.length) + SCREENSHOTS.length) % SCREENSHOTS.length;
@@ -157,12 +159,20 @@ export const HeroCards: React.FC<HeroCardsProps> = () => {
 
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % SCREENSHOTS.length);
+    setCurrentIndex((prev) => {
+      const next = (prev + 1) % SCREENSHOTS.length;
+      savedScreenshotIndex = next;
+      return next;
+    });
   };
 
   const handlePrev = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + SCREENSHOTS.length) % SCREENSHOTS.length);
+    setCurrentIndex((prev) => {
+      const next = (prev - 1 + SCREENSHOTS.length) % SCREENSHOTS.length;
+      savedScreenshotIndex = next;
+      return next;
+    });
   };
 
   const cardVariants = {
@@ -220,7 +230,7 @@ export const HeroCards: React.FC<HeroCardsProps> = () => {
 
           {/* MAIN CENTER MOBILE PHONE CARD (Highest Z-Index Layer z-50, Exact Same Dimensions, Freely Draggable) */}
           <div className="relative flex flex-col items-center w-[290px] sm:w-[320px] md:w-[340px] shrink-0 z-50">
-            <AnimatePresence mode="popLayout" custom={direction}>
+            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
               <motion.div
                 key={activeScreen.id}
                 custom={direction}
