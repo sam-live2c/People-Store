@@ -99,6 +99,7 @@ export const LegalPoliciesPage: React.FC<LegalPoliciesPageProps> = ({
               <li>1.3 User Conduct &amp; Fair Gameplay</li>
               <li>1.4 Intellectual Property</li>
               <li>1.5 Disclaimers &amp; Limitation of Liability</li>
+              <li>1.6 Account Deletion, Logout &amp; 24/7 Support Service</li>
             </ul>
           </li>
           <li>
@@ -109,9 +110,9 @@ export const LegalPoliciesPage: React.FC<LegalPoliciesPageProps> = ({
               <li>2.1 Zero Personal Data Collection</li>
               <li>2.2 Local Device Storage</li>
               <li>2.3 Optional Google Sign-In &amp; Download Tracking</li>
-              <li>2.4 Third-Party Services</li>
+              <li>2.4 User Data Rights, Account Deletion &amp; Immediate Action</li>
               <li>2.5 Children's Privacy</li>
-              <li>2.6 Contact Information</li>
+              <li>2.6 24/7 Active Customer Support &amp; Contact Desk</li>
             </ul>
           </li>
         </ol>
@@ -180,6 +181,13 @@ export const LegalPoliciesPage: React.FC<LegalPoliciesPageProps> = ({
         <p>
           Brick Stack is provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis without warranties of any kind, whether express or implied. Under no circumstances shall the creators, developers, or distributors be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the game.
         </p>
+
+        <h3 style={{ fontSize: '18px', margin: '16px 0 8px 0' }}>
+          1.7 Account Deletion, Logout &amp; 24/7 Customer Support Action
+        </h3>
+        <p>
+          If any user wishes to log out, disconnect, or permanently delete their logged-in account and associated download verification records, they may submit a request directly to our official support email at <a href="mailto:prople.site@gmail.com" style={{ color: '#0000EE' }}>prople.site@gmail.com</a>. Our dedicated customer service team is <strong>active 24/7</strong> and processes account deletion, session termination, and data purging requests with <strong>immediate action</strong> upon receipt.
+        </p>
       </section>
 
       <hr style={{ margin: '32px 0', borderTop: '1px solid #cccccc' }} />
@@ -234,20 +242,38 @@ export const LegalPoliciesPage: React.FC<LegalPoliciesPageProps> = ({
         </p>
 
         <h3 style={{ fontSize: '18px', margin: '16px 0 8px 0' }}>
-          2.5 Children's Privacy
+          2.5 User Rights: Account Deletion, Log Out &amp; 24/7 Immediate Action
+        </h3>
+        <p>
+          We fully respect your right to control and delete your data at any time:
+        </p>
+        <ul style={{ paddingLeft: '24px', margin: '8px 0' }}>
+          <li>
+            <strong>Account Deletion &amp; Log Out Requests:</strong> If you wish to delete your logged-in Google account record, clear download logs, or request remote session sign-out, simply send an email to <a href="mailto:prople.site@gmail.com" style={{ color: '#0000EE' }}>prople.site@gmail.com</a> with the subject line <em>"Account Deletion Request"</em>.
+          </li>
+          <li>
+            <strong>24/7 Customer Service with Immediate Action:</strong> Our customer support desk is active <strong>24/7</strong>. Requests are prioritized and handled with <strong>immediate action</strong> to permanently purge your profile, authentication records, and download telemetry from our databases without delay.
+          </li>
+          <li>
+            <strong>Self-Service Google OAuth Revocation:</strong> You can also instantly disconnect Brick Stack at any time from your Google Account permissions portal (<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" style={{ color: '#0000EE' }}>myaccount.google.com/permissions</a>).
+          </li>
+        </ul>
+
+        <h3 style={{ fontSize: '18px', margin: '16px 0 8px 0' }}>
+          2.6 Children's Privacy
         </h3>
         <p>
           Brick Stack is suitable for general audiences of all ages and does not knowingly collect, solicit, or maintain personally identifiable information from children under the age of 13.
         </p>
 
         <h3 style={{ fontSize: '18px', margin: '16px 0 8px 0' }}>
-          2.6 Contact and Support Information
+          2.7 24/7 Contact and Support Information
         </h3>
         <p>
-          If you have questions, feedback, or concerns regarding these Terms and Conditions or Privacy Policy, please contact us:
+          If you have questions, feedback, account deletion/log out requests, or privacy concerns, our 24/7 customer service is available around the clock:
         </p>
         <ul style={{ paddingLeft: '24px', margin: '8px 0' }}>
-          <li><strong>Support Email:</strong> prople.site@gmail.com</li>
+          <li><strong>24/7 Support Email:</strong> <a href="mailto:prople.site@gmail.com" style={{ color: '#0000EE' }}>prople.site@gmail.com</a> (Immediate Action for Deletion / Log out requests)</li>
           <li><strong>About Us:</strong> <a href="https://cloaktail.com/about" target="_blank" rel="noopener noreferrer" style={{ color: '#0000EE' }}>https://cloaktail.com/about</a></li>
           <li><strong>Help &amp; Support Desk:</strong> <a href="https://cloaktail.com/contact" target="_blank" rel="noopener noreferrer" style={{ color: '#0000EE' }}>https://cloaktail.com/contact</a></li>
         </ul>

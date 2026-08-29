@@ -38,6 +38,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy, onOpenTerms
               <div className="p-4 bg-slate-100 rounded-xl border border-slate-200 text-slate-800 font-medium text-sm">
                 Hey Gamer! Your privacy is 100% respected here. We collect zero personal data, and all your high scores & retro console settings stay stored safely right on your device. Have fun stacking bricks!
               </div>
+              <div className="p-3 bg-blue-50/80 rounded-xl border border-blue-100 text-xs text-blue-900">
+                <strong>Account Deletion &amp; Log Out:</strong> To delete your account or log out, email <a href="mailto:prople.site@gmail.com" className="font-semibold underline">prople.site@gmail.com</a>. Our 24/7 customer service is active and takes immediate action.
+              </div>
               <p className="text-xs text-gray-500">
                 Official Brick Stack Privacy Statement.
               </p>

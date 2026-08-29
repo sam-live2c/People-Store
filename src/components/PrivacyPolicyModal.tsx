@@ -106,10 +106,13 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({
           <div className="space-y-4 pt-2">
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <FileText className="w-4 h-4 text-blue-600" />
-              2. User Rights & Account Control
+              2. User Rights, Account Deletion & 24/7 Support Action
             </h3>
-            <p className="text-xs text-slate-600">
-              You maintain 100% control over your connected account. You can manage or revoke Brick Stack's download authorization anytime directly through your official Google Account Security Settings page (<a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer" className="text-blue-600 underline font-medium">myaccount.google.com/permissions</a>).
+            <p className="text-xs text-slate-600 leading-relaxed">
+              You maintain 100% control over your account. If any user wants to delete their logged-in account, clear download records, or log out remotely, please send a request to our support email at <a href="mailto:prople.site@gmail.com" className="text-blue-600 font-semibold underline">prople.site@gmail.com</a>. Our customer service is active <strong>24/7</strong> and will take <strong>immediate action</strong> to delete and purge your data.
+            </p>
+            <p className="text-xs text-slate-500">
+              You can also manage or revoke Brick Stack's permissions anytime via <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer" className="text-blue-600 underline font-medium">Google Account Permissions</a>.
             </p>
           </div>
 
