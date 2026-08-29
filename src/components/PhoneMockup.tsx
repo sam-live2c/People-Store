@@ -199,9 +199,16 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
             
             {/* Header */}
             <div className="px-1 mb-2 flex items-center justify-between text-xs font-mono font-bold tracking-tight text-slate-900">
-              <span className={`text-xs sm:text-sm tracking-wider font-black ${screen.theme === 'purple' ? 'text-white' : 'text-slate-950'}`}>
-                BRICK STACK
-              </span>
+              <div className="flex flex-col">
+                <span className={`text-xs sm:text-sm tracking-wider font-black leading-none ${screen.theme === 'purple' ? 'text-white' : 'text-slate-950'}`}>
+                  BRICK STACK
+                </span>
+                <span className={`text-[6.5px] font-sans font-bold tracking-widest mt-0.5 uppercase ${
+                  screen.theme === 'purple' ? 'text-purple-200/80' : 'text-slate-800/85'
+                }`}>
+                  SINGLE PLAYER ARCADE
+                </span>
+              </div>
               
               <div className="flex items-center gap-1.5">
                 <div className="px-2 py-0.5 rounded-md bg-[#99B087] border border-[#546844] text-slate-800 text-[10px] font-sans font-medium shadow-2xs flex items-center gap-1">
